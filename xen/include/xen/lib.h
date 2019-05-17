@@ -172,7 +172,11 @@ extern char *print_tainted(char *str);
 extern void add_taint(unsigned int taint);
 
 struct cpu_user_regs;
+#ifdef CONFIG_KEYHANDLERS
 void dump_execstate(struct cpu_user_regs *);
+#else
+static inline void dump_execstate(struct cpu_user_regs *regs) {}
+#endif
 
 void init_constructors(void);
 
