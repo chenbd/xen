@@ -368,4 +368,8 @@ config DOM0_MEM
 
 	  Leave empty if you are not sure what to specify.
 
+config HAS_KEYHANDLER
+	bool "Enable/Disable keyhandler"
+	default n
+
 endmenu
