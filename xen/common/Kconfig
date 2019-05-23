@@ -372,4 +372,8 @@ config HAS_KEYHANDLER
 	bool "Enable/Disable keyhandler"
 	default n
 
+config HAS_TRACEBUFFER
+	bool "Enable/Disable tracebuffer"
+	default n
+
 endmenu
