@@ -64,9 +64,11 @@ int cpu_up(unsigned int cpu);
 /* From arch code, send CPU_STARTING notification. */
 void notify_cpu_starting(unsigned int cpu);
 
+#ifdef CONFIG_X86
 /* Power management. */
 int disable_nonboot_cpus(void);
 void enable_nonboot_cpus(void);
+#endif
 
 /* Private arch-dependent helpers for CPU hotplug. */
 int __cpu_up(unsigned int cpunum);
