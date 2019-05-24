@@ -213,9 +213,9 @@ static inline void sched_free_domdata(const struct scheduler *s,
 struct cpupool
 {
     int              cpupool_id;
+    unsigned int     n_dom;
     cpumask_var_t    cpu_valid;      /* all cpus assigned to pool */
     struct cpupool   *next;
-    unsigned int     n_dom;
     struct scheduler *sched;
     atomic_t         refcnt;
 };
