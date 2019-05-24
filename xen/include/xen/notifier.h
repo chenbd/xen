@@ -29,18 +29,17 @@ struct notifier_block {
 };
 
 struct notifier_head {
-    struct notifier_block head;
+    struct list_head head;
 };
 
-#define NOTIFIER_INIT(name) { .head.chain = LIST_HEAD_INIT(name.head.chain) }
+#define NOTIFIER_INIT(name) { .head = LIST_HEAD_INIT(name.head) }
 
 #define NOTIFIER_HEAD(name) \
     struct notifier_head name = NOTIFIER_INIT(name)
 
 void notifier_chain_register(
     struct notifier_head *nh, struct notifier_block *nb);
-void notifier_chain_unregister(
-    struct notifier_head *nh, struct notifier_block *nb);
+void notifier_chain_unregister(struct notifier_block *nb);
 
 int notifier_call_chain(
     struct notifier_head *nh, unsigned long val, void *v,
