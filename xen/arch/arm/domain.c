@@ -557,7 +557,7 @@ int arch_vcpu_create(struct vcpu *v)
                                            - sizeof(struct cpu_info));
     memset(v->arch.cpu_info, 0, sizeof(*v->arch.cpu_info));
 
-    memset(&v->arch.saved_context, 0, sizeof(v->arch.saved_context));
+    ASSERT(v->arch.saved_context.pc == 0);
     v->arch.saved_context.sp = (register_t)v->arch.cpu_info;
     v->arch.saved_context.pc = (register_t)continue_new_vcpu;
 
